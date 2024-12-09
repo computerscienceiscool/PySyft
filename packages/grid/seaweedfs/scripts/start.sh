@@ -16,7 +16,7 @@ fi
 
 # setup cron jobs
 echo "Setting up cron jobs"
-cat > /etc/periodic/hourly/uncache <<EOF
+cat > /etc/periodic/daily/uncache <<EOF
 #!/bin/sh
 sh /root/swfs/scripts/wait_for_swfs.sh && echo remote.uncache -minAge=$SWFS_UNCACHE_MINAGE | weed shell
 EOF

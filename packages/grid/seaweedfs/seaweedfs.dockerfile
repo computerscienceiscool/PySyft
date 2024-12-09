@@ -1,4 +1,4 @@
-ARG SEAWEEDFS_VERSION="3.64"
+ARG SEAWEEDFS_VERSION="3.80"
 FROM chrislusf/seaweedfs:${SEAWEEDFS_VERSION}_large_disk
 
 WORKDIR /root/swfs
@@ -10,8 +10,7 @@ COPY ./requirements.txt .
 
 RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
 
-RUN mkdir -p /data/master/ /data/vol/blob/ /data/vol/idx/ && \
-    ulimit -n 10240
+RUN mkdir -p /data/master/ /data/vol/blob/ /data/vol/idx/
 
 COPY ./scripts ./scripts
 COPY ./src ./src
